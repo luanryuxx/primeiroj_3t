@@ -1,5 +1,3 @@
-//console.log ("Alô Mundo...");
-//alert("Alô Mundo...");
  let tabuada = 8;
 
 function meChame(){
@@ -14,4 +12,10 @@ document.write(tabuada + " x 7 = " + (tabuada *7) + "<br>");
 document.write(tabuada + " x 8 = " + (tabuada*8) + "<br>");
 document.write(tabuada + " x 9 = " + (tabuada *9) + "<br>");
 document.write(tabuada + " x 10 = " + (tabuada*10) + "<br>");
+}
+
+function minhaTabuada(){
+   for(var i=1; i <= 10; i++){
+
+   }
 }
