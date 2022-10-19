@@ -35,6 +35,17 @@ function escreva(){
 function total(){
     let val = document.getElementById("valor").value;
     let ju = document.getElementById("juros").value;
+    if(Number(val)){
+      alert("O valor deve ser um numero. ")
+      document.getElementById("valor").value = "";
+      document.getElementById("valor").focus();
+      return
+      if(number(ju)){
+         alert("O valor do jurosdeve ser um numero. ")
+         document.getElementById("juros").value = "";
+      document.getElementById("juros").focus();
+      }
+    }
     let resultado = (val * (1+ (ju/100))) + val;
     document.write("o resultado é " + resultado);
 }
