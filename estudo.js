@@ -18,6 +18,8 @@ function meChame(){
 }
 
 
+
+
 function minhaTabuada(){
    for(var i=1; i <= 10; i++){
 
@@ -35,68 +37,43 @@ function quadrado(){
    }
 }
 
+function moeda(atual){
+   return atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+}
+
 function total(){
    let val = document.getElementById("valor").value;
    let ju = document.getElementById("juros").value;
+   let t = document.getElementById("meses").value;
 
    if(!Number(val)){
       alert("O valor deve ser um número.");
       document.getElementById("valor").value = "";
-      document.getElementById("valor").focus = "";
-      return
+      document.getElementById("valor").focus();
+      return 
    }
-
    if(!Number(ju)){
-      alert("O valor deve ser um número.")
+      alert("O valor dos juros deve ser um número.");
       document.getElementById("juros").value = "";
-      document.getElementById("juros").focus = "";
-      return
+      document.getElementById("juros").focus();
+      return 
    }
-   
-   let resultado = (val * (1+ (ju/100)));
-   document.write("O resultado é " + resultado);
+   if(!Number(t)){
+      alert("A quantidade de meses deve ser um número.");
+      document.getElementById("meses").value = "";
+      document.getElementById("meses").focus();
+      return 
+   }
+   let r = val;
+   let texto = "";
+   for(let m = 1; m <= t; m++){
+      r = (val * (1+ (ju/100)));
+      val = r;
+      texto +=  m + ": " + moeda(r) + "<br>"
+      //document.write("Mês " + m + " valor: " + moeda(r) + "<br>");
+   }
+      document.getElementById("ListaMes").innerHTML = texto;
+      document.getElementById("total").innerHTML = "Total: "+ moeda (r);
+   //document.write("O total é " + moeda(r));
 }
-
-function soma(){
-   let v1 = document.getElementById("v1").value;
-   let v2 = document.getElementById("v2").value;
-   let r = (Number(v1) + Number(v2));
-   document.getElementById("resultado").innerHTML = r;
-}
-
-
-function subtração(){
-   let v1 = document.getElementById("v1").value;
-   let v2 = document.getElementById("v2").value;
-   let r = (Number(v1) - Number(v2));
-   document.getElementById("resultado").innerHTML = r;
-}
-
-function divisão(){
-   let v1 = document.getElementById("v1").value;
-   let v2 = document.getElementById("v2").value;
-   let r = (Number(v1) / Number(v2));
-   document.getElementById("resultado").innerHTML = r;
-}
-
-function multiplicação(){
-   let v1 = document.getElementById("v1").value;
-   let v2 = document.getElementById("v2").value;
-   let r = (Number(v1) * Number(v2));
-   document.getElementById("resultado").innerHTML = r;
-}
-
-if(Number(t)){
-   alert("O valor deve ser um numero. ")
-   document.getElementById("meses").value = "";
-   document.getElementById("meses").focus();
-   return
-}
-let r = val;
-for(let = 1; m <= t; m++){
-   r = (val * (1+ (ju/100)));
-   val = r;
-   document.write("Mês " + m + "valor: " + r + "<br>");
-}
-
-document.write("O total é " + r);
+Footer
